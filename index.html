@@ -23,6 +23,12 @@
              font-size: 1.2em;
              line-height: 1.2em;
              }
+         RQpic {
+            position:absolute;
+            right:50px;
+            top:10px;
+           }
+</style>
       </style>
         <meta charset="utf-8">
         <script src="d3.v3.min.js"></script>
@@ -31,30 +37,50 @@
     </head>
 
     <body>
-        <svg width="35" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
-        <div class="left_1" >
+        <svg width="35" height="10">
+          <rect width="100%" height="100%" fill="white" /> </svg>
+        
+        <div class="left_1">
+          <div class="left_1">
             <h8>简历下载</h8>
-            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <svg width="17" height="10">
+              <rect width="100%" height="100%" fill="white" /> </svg>
             <button type="button" id="linzeyang_b_data_analysis">数据分析-林泽洋</button>
-	    <svg width="13" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <svg width="13" height="10">
+              <rect width="100%" height="100%" fill="white" /> </svg>
             <button type="button" id="linzeyang_b_android_java_develop">安卓Java开发-林泽洋</button>
-	</div>
-	<svg width="25" height="20" > <rect width="100%" height="100%" fill="white" /> </svg>
-	<div class="left_1" >
+        
+        
+          </div>
+          <svg width="25" height="20">
+            <rect width="100%" height="100%" fill="white" /> </svg>
+          <div class="left_1">
             <h8>证书下载</h8>
-            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <svg width="17" height="10">
+              <rect width="100%" height="100%" fill="white" /> </svg>
             <button type="button" id="lzy_da_en_certificate">Data Analyst (Advanced)-林泽洋</button>
-	    <svg width="13" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <svg width="13" height="10">
+              <rect width="100%" height="100%" fill="white" /> </svg>
             <button type="button" id="lzy_da_cn_certificate">数据分析(进阶)证书-林泽洋</button>
+          </div>
+          <svg width="25" height="20">
+            <rect width="100%" height="100%" fill="white" /> </svg>
+          <div class="left_1"></div>
+        
+          
+          <h8>展示作品下载</h8>
+          <svg width="17" height="10">
+            <rect width="100%" height="100%" fill="white" /> </svg>
+          <button type="button" id="linzeyang_b_r_project">R语言项目展示文件-林泽洋</button>
         </div>
-	<svg width="25" height="20" > <rect width="100%" height="100%" fill="white" /> </svg>
-	<div class="left_1" >
-            <h8>展示作品下载</h8>
-            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
-            <button type="button" id="linzeyang_b_r_project">R语言项目展示文件-林泽洋</button>
-	</div>
-
-        <svg width="35" height="20" > <rect width="100%" height="100%" fill="white" /> </svg>
+        <RQpic >
+        <svg width="17" height="10">
+          <rect width="100%" height="100%" fill="white" /> </svg>
+        <img src="https://files.cnblogs.com/files/errorplayer/errorplayer_web.bmp" width="220" height="220">
+        </RQpic>
+        
+        <svg width="35" height="60">
+          <rect width="100%" height="100%" fill="white" /> </svg>
       <!--  <div class="left_3" >
             <h8>简历下载</h8>
             <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
@@ -65,11 +91,7 @@
             <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
             <button type="button" id="lzy_lalaweather_download">天气新闻聊天apk</button>
         </div>-->
-	    <div class="left_3" >
-            
-            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
-            <img src="https://files.cnblogs.com/files/errorplayer/errorplayer_web.bmp" width="256" height="256">
-        </div>
+	   
     	  <h1></h1>
         <h2>棒球球员的表现差异</h2>
         <h4>棒球运动是一种以棒打球为主要特点，集体性、对抗性很强的球类运动项目。它在国际上开展较为广泛，影响较大。比赛中，两队轮流攻守：当进攻球员成功跑回本垒，就可得1分。</h4>
@@ -176,7 +198,7 @@
         "选中一种惯用手型时，图表上非坐标轴上的点的颜色代表这类惯用手型的颜色，","而位于坐标轴上的其他颜色的点则是属于其他惯用手型的数据点"])
     	.enter()
     	.append("text")
-    	.attr("x", 850)
+    	.attr("x", 600)
     	.attr("y", function (d, i) { return 30 + i * 24; })
     	.style("font-family", "sans-serif")
     	.style("font-size", "18px")
