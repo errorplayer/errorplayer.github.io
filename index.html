@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+      <style type="text/css">
+      	dimple-series-0{
+        fill: red;
+       }
+        h3 {
+            color: blue;
+            text-align: left;
+           }
+        h2 {
+            color: blue;
+            text-align: center;
+           }
+        h8 {
+            color: red;
+            text-align: center;
+           } 
+		h12 {
+            color: blueviolet;
+            text-align: center;
+			font-size: 8mm;
+           }  
+        body {
+             font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
+             font-weight: 300;
+             font-size: 1.2em;
+             line-height: 1.2em;
+             }
+         RQpic {
+            position:absolute;
+            right:50px;
+            top:10px;
+           }
+</style>
+      </style>
+        <meta charset="utf-8">
+        <script src="d3.v3.min.js"></script>
+        <script src="dimple.v2.0.0.min.js"></script>
+        <script src="jquery.min.js"></script>
+    </head>
+
+    <body>
+        <svg width="10" height="40">
+        <rect width="100%" height="100%" fill="white" /> </svg>
+		
+		<!--
+        <div class="left_1">
+            <div class="left_1">
+				<h8>简历下载</h8>
+				<svg width="17" height="10">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<button type="button" id="linzeyang_b_data_analysis">数据分析-林泽洋</button>
+				<svg width="13" height="10">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<button type="button" id="linzeyang_b_android_java_develop">安卓Java开发-林泽洋</button>
+			</div>
+			
+            <svg width="25" height="20">
+            <rect width="100%" height="100%" fill="white" /> </svg>
+		  
+			<div class="left_1">
+				<h8>证书下载</h8>
+				<svg width="17" height="10">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<button type="button" id="lzy_da_en_certificate">Data Analyst (Advanced)-林泽洋</button>
+				<svg width="13" height="10">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<button type="button" id="lzy_da_cn_certificate">数据分析(进阶)证书-林泽洋</button>
+		    </div>
+		  
+            <svg width="25" height="20">
+			<rect width="100%" height="100%" fill="white" /> </svg>
+			
+            <div class="left_1"></div>
+				<h8>展示作品下载</h8>
+				<svg width="17" height="10">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<button type="button" id="linzeyang_b_r_project">R语言项目展示文件-林泽洋</button>
+
+			<svg width="25" height="20">
+			<rect width="100%" height="100%" fill="white" /> </svg>
+			-->			
+			<div class="left_1"></div>
+			    <svg width="128" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<h12>Dictionary</h12>
+				<svg width="17" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+			<div class="left_1"></div>
+			    <svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://dictionary.cambridge.org/dictionary/english-chinese-simplified/"  target="_blank"> 剑桥英-中词典</a>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://www.ldoceonline.com/"  target="_blank"> 朗文当代词典</a>
+
+			<div class="left_1"></div>
+			    <svg width="128" height="70">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<h12>(academic) writer</h12>
+				<svg width="17" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+			<div class="left_1"></div>
+			    <svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://owl.purdue.edu/owl/purdue_owl.html"  target="_blank" >普渡大学Online Writing Lab [加载很慢]</a>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="http://www.phrasebank.manchester.ac.uk/"  target="_blank"> 曼彻斯特大学Phrasebank</a>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://www.nottingham.ac.uk/studentservices/support/supportforyourstudies/academicsupport/studyresources/writing/index.aspx"  target="_blank"> 诺丁汉大学->学术支持->学习资源->写作</a>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="http://www2.actden.com/writ_den/tips/contents.htm"  target="_blank">DEN写作指导</a>
+
+
+
+
+			<div class="left_1"></div>
+			    <svg width="128" height="70">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<h12>Ideas & Thinking</h12>
+				<svg width="17" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+			<div class="left_1"></div>
+			    <svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://www.newscientist.com/"  target="_blank" >据说很多雅思阅读从这里选 [加载有点慢]</a>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://stackexchange.com/"  target="_blank"> 问答社区（个人觉得这个风格比贴吧好看）</a>
+			
+			<div class="left_1"></div>	
+				<svg width="168" height="80">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+			<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="https://www4.bing.com/"  target="_blank"> Bing</a>
+			<!--<div class="left_1"></div>	
+				<svg width="168" height="40">
+				<rect width="100%" height="100%" fill="white" /> </svg>
+				<a href="http://www2.actden.com/writ_den/tips/contents.htm"  target="_blank">DEN写作指导</a>-->
+        </div>
+        <RQpic >
+        <svg width="17" height="10">
+          <rect width="100%" height="100%" fill="white" /> </svg>
+        <img src="https://files.cnblogs.com/files/errorplayer/weixinRQ.bmp" width="320" >
+        </RQpic>
+        
+        <svg width="35" height="60">
+        <rect width="100%" height="100%" fill="white" /> </svg>
+        <!--  <div class="left_3" >
+            <h8>简历下载</h8>
+            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <button type="button" id="zonghaijing_b">zhj的简历</button>
+        </div>
+	    <div class="left_3" >
+            <h8>APK下载</h8>
+            <svg width="17" height="10" > <rect width="100%" height="100%" fill="white" /> </svg>
+            <button type="button" id="lzy_lalaweather_download">天气新闻聊天apk</button>
+		</div>-->
+		
+
+	    <!--
+    	<h1></h1>
+        <h2>棒球球员的表现差异</h2>
+        <h4>棒球运动是一种以棒打球为主要特点，集体性、对抗性很强的球类运动项目。它在国际上开展较为广泛，影响较大。比赛中，两队轮流攻守：当进攻球员成功跑回本垒，就可得1分。</h4>
+        <h4></h4>
+        <h4>在这个可视化作品中，我选取了一些棒球球员的信息作为数据源，该数据集有6个字段分别是：球员姓名、惯用手、身高、体重、击球率、全垒得分。</h4>
+        <h4>本交互图表的目的主要是表现出不同球员身体素质（身高体重）和赛场表现（击球率和全垒得分）的综合情况。</h4>
+        <h3></h3>
+       
+        <div id="chartContainer">
+        </div>
+        <script type="text/javascript">  
+    
+		//为两个下拉菜单设置的svg容器，以更好的调节位置，使之不过于靠近端边
+		var  space2 = d3.select("h3").append("svg").attr('weight',2).attr('height',1);
+
+
+		function draw(data)  {
+
+		//创建放置图表的svg
+		var svg = dimple.newSvg("#chartContainer",1900, 450);
+
+		//两个下拉菜单的设置
+		//选择身高体重下拉菜单
+		h_w_type = [{'value': '身高'}, {'value': '体重'}];
+		var h_w_dropdown = d3.select("h3").append("select")
+			.attr("id", "h_w_list");
+		var h_w_options = h_w_dropdown.selectAll("option")
+			.data(h_w_type) 
+			.enter()
+			.append("option");
+			h_w_options.text(function(d){ return d.value; })
+			.attr("value", function (d) { return d.value; });
+
+		
+		//选择击球率全垒得分下拉菜单
+		avg_hr_type = [{'value': '击球率'}, {'value': '全垒得分'}];
+		var avg_hr_dropdown = d3.select("h3").append("select")
+			.attr("id", "avg_hr_list");
+		var avg_hr_options = avg_hr_dropdown.selectAll("option")
+			.data(avg_hr_type) 
+			.enter()
+			.append("option");
+			avg_hr_options.text(function(d){ return d.value; })
+			.attr("value", function (d) { return d.value; });
+
+		//设置变量保存当前选择
+		var saved_choice1 = "height";
+		var saved_choice2 = "avg";
+
+		//动画时间
+		var frame = 3000;
+
+		//绘制图表面板
+		function drawChart(axis_x, axis_y, c=null){
+		
+
+			//惯用手的条形选择
+				var indicator = new dimple.chart(svg, data);
+
+			//条形选择的颜色
+				var defaultColor = indicator.defaultColors[5];
+				var indicatorColor = indicator.defaultColors[6];
+
+			//条形图表的边框
+			indicator.setBounds(170, 8, 170, 50);
+
+			//条形图表的纵轴
+				var y = indicator.addCategoryAxis("y", "handedness");
+
+			//条形图表的横轴
+			var x = indicator.addMeasureAxis("x","HR");
+				x.hidden = true;
+
+
+				var s = indicator.addSeries(null, dimple.plot.bar);
+
+			//设置条形点击事件
+				s.addEventHandler("click", onClick);
+
+			//绘制条形图
+				indicator.draw();
+				
+
+			//简化条形，使其更简约
+				y.titleShape.remove();
+				y.shapes.selectAll("line,path").remove();
+				
+			y.shapes.selectAll("text")
+				.style("text-anchor", "start")
+				.style("font-size", "18px")
+				.attr("transform", "translate(10, 1)");
+		
+
+
+			//设置图表交互说明
+				svg.selectAll("title_text")
+				.data(["将球员按照惯用手分为3类，B为双手，L为左手，R为右手",
+					"把鼠标放置在左边条形上，HR的值表示该类球员的全垒得分总和",
+					"点击条形以选择查看各类球员的信息分布",
+				"将鼠标移至图表中点上可获得该球员准确数据",
+				"如需查看身高或体重与击球率和全垒得分的关系可从左上方的下拉选项进行设置",
+				"对不同的惯用手型的数据点进行了染色，在可视化中可以发现，",
+				"选中一种惯用手型时，图表上非坐标轴上的点的颜色代表这类惯用手型的颜色，","而位于坐标轴上的其他颜色的点则是属于其他惯用手型的数据点"])
+				.enter()
+				.append("text")
+				.attr("x", 600)
+				.attr("y", function (d, i) { return 30 + i * 24; })
+				.style("font-family", "sans-serif")
+				.style("font-size", "18px")
+				.style("color", "Black")
+				.text(function (d) { return d; });
+
+				
+			//条形图的倒角圆滑
+				s.shapes
+				.attr("rx", 6)
+				.attr("ry", 6)
+				.style("fill", function (d) { return (d.y === 'B' ? indicatorColor.fill : defaultColor.fill) })
+				.style("stroke", function (d) { return (d.y === 'B' ? indicatorColor.stroke : defaultColor.stroke) })
+				.style("opacity", 0.5);
+				
+
+			//点图
+				var BubblesChart = new dimple.chart(svg, data);
+				BubblesChart.setBounds(100,0 , 1000, 400);
+				//var x = BubblesChart.addMeasureAxis("x", axis_x);
+			//横轴自变量文字说明
+				var x = BubblesChart.addAxis("x",axis_x);
+				if(axis_x === 'height'){
+					x.title = "身高（英寸）";
+				}
+				else{
+					x.title = "体重（磅）";
+				
+				} 
+			
+
+			
+			
+			
+			
+			//纵轴自变量文字说明
+				var y = BubblesChart.addMeasureAxis("y", axis_y);
+				if(axis_y === 'avg'){
+					y.title = "击球率";
+				}
+				else{
+					y.title = "全垒得分";
+				}  
+				BubblesChart.addSeries(["handedness"], dimple.plot.bubble);
+
+				
+			//动画设置
+			var story = BubblesChart.setStoryboard("handedness", onTick);
+			story.frameDuration = frame;
+			story.addOrderRule("handedness");
+
+			//点击惯用手条形事件响应
+				function onClick(e) {
+				// Pause the animation
+				story.pauseAnimation();
+				story.storyLabel.remove();
+				if (e.yValue === story.getFrameValue()) {
+				//story.startAnimation();
+				} 
+				else {
+				story.goToFrame(e.yValue);
+				story.pauseAnimation();
+				story.storyLabel.remove();
+			
+				}
+			}
+
+			/*function onClick_bubbles(e){
+			d3.selectAll("circle").style("opacity",function(d){
+			return (d.yValue === 0 && d.xValue === 0 ? 0 : 1)
+			});
+			}*/
+			//切换动画设置
+			function onTick(e) {
+				s.shapes
+				.transition()
+				.duration(frame / 5)
+				.style("fill", function (d) { return (d.y === e ? indicatorColor.fill : defaultColor.fill) })
+				.style("stroke", function (d) { return (d.y === e ? indicatorColor.stroke : defaultColor.stroke) });
+			}
+
+
+			BubblesChart.draw();
+			//设置菜单选择改变事件
+			h_w_dropdown.on("change", statureChanged1);
+			avg_hr_dropdown.on("change", statureChanged2);
+			
+
+
+
+			return BubblesChart;
+		}
+		
+		
+		//身高体重菜单的响应
+		function statureChanged1() {
+				var selectedValue = d3.event.target.value;
+				var selection = '';
+				if(selectedValue === '身高'){
+					selection = 'height';
+					saved_choice1 = "height";
+				}
+				else{
+					selection = 'weight';
+					saved_choice1 = "weight";
+				}
+				d3.selectAll("svg > *").remove();
+				var new_chart = drawChart(selection, saved_choice2);
+
+				//设置菜单选择改变事件
+				h_w_dropdown.on("change", statureChanged1);
+				avg_hr_dropdown.on("change", statureChanged2);
+			
+			}
+		//全垒得分击球率菜单的响应
+		function statureChanged2() {
+				var selectedValue = d3.event.target.value;
+				var selection = '';
+				if(selectedValue === '击球率'){
+					selection = 'avg';
+					saved_choice2 = "avg";
+				}
+				else{
+					selection = 'HR';
+					saved_choice2 = "HR";
+				}
+				d3.selectAll("svg > *").remove();
+				var new_chart = drawChart(saved_choice1,selection);
+
+				//设置菜单选择改变事件
+				h_w_dropdown.on("change", statureChanged1);
+				avg_hr_dropdown.on("change", statureChanged2);
+				
+			
+			}
+		
+		
+		//以默认的横纵坐标呈现图表
+		var myChart = drawChart(saved_choice1, saved_choice2);
+
+
+
+
+		
+		
+		};
+		</script>
+		<h4>从身高方面来看，赛场上击球率较高的选手，身高集中在70-74英寸。结合图表来看，我们很难说身高对于球员的全垒得分有较大影响，事实上得分高的选手是我们所说的“高手”、“球星”一类人物，他们毕竟占少数只要努力，任何身高的人都有可能成为球星。</h4>
+		
+	    -->
+		<script>
+		$(function(){
+			var $lzy_b_da = $("#linzeyang_b_data_analysis");
+			var $lzy_b_ajd = $("#linzeyang_b_android_java_develop");
+			var $lzy_b_r_project = $("#linzeyang_b_r_project");
+			var $zhj_b = $("#zonghaijing_b");
+			var $lzy_b_da_en_certificate = $("#lzy_da_en_certificate");
+			var $lzy_b_da_cn_certificate = $("#lzy_da_cn_certificate");
+			var $lzy_b_lalaweather_appapk = $("#lzy_lalaweather_download");
+		
+			//已知一个下载文件的后端接口：https://codeload.github.com/douban/douban-client/legacy.zip/master
+			//方法一：window.open()
+			/* $lzy_b_da.click(function(){
+				window.open("http://codeload.github.com/errorplayer.github.io/data_analysis_linzeyang.pdf");
+			});*/
+			
+				//方法二：通过form
+			$zhj_b.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/jiangnan_university_zonghaijing.pdf");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+
+				$lzy_b_da.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/data_analysis_linzeyang.pdf");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+				$lzy_b_ajd.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/android_java_develop.pdf");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+				
+			$lzy_b_r_project.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/Rproject.zip");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+			$lzy_b_da_en_certificate.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/en_certificate_DA.pdf");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+			$lzy_b_da_cn_certificate.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/cn_certificate_DA.pdf");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+				
+			$lzy_b_lalaweather_appapk.click(function(){
+				var $eleForm = $("<form method='get'></form>");
+			
+				$eleForm.attr("action","https://files.cnblogs.com/files/errorplayer/app-debug.apk");
+			
+				$(document.body).append($eleForm);
+			
+				//提交表单，实现下载
+				$eleForm.submit();
+				});
+		})
+		</script>
+		
+  </body>
+	 <script type="text/javascript">
+	   
+        // d3.csv("baseball_data.csv",  function(d) {
+		// 	d['height'] = +d['height'];
+		// 	d['weight'] = +d['weight'];
+		// 	d['avg'] = +d['avg'];
+		// 	d['HR'] = +d['HR'];
+		// 	return d;
+        // },draw);
+		
+    </script>
+</html>
