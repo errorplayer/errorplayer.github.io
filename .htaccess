@@ -1,0 +1,14 @@
+RewriteEngine On
+Options -Indexes
+RewriteRule cv$ resume/resume-ZH.pdf
+RewriteRule cv_BCI$ resume/resume-BCI.pdf
+RewriteRule cv_en$ resume/resume-EN.pdf
+RewriteRule cv$ resume/resume-ALG.pdf
+RewriteRule v2$ piano/v2.mp4
+RewriteRule summer$ piano/summer.mp4
+RewriteRule notes-0224$ da-notes/答疑整理-0224.pdf
+RewriteRule ph7-module2-assignment$ assignment/ph7_module2_assignment.html
+RewriteRule resume/tips/interview_prepare$ resume/tips/interview_prepare.pdf
+RewriteRule r$ list.html
+RewriteRule phrase$ reading/phrases.pdf
+RewriteRule ns$ reading/pns_6th.pdf
