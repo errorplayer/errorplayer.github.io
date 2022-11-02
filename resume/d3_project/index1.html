@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+      <style type="text/css">
+      	h2 {
+            color: blue;
+            text-align: center;
+           }
+        body {
+             font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
+             font-weight: 300;
+             font-size: 1.2em;
+             line-height: 1.2em;
+             }
+      </style>
+        <meta charset="utf-8">
+        <script src="d3.v3.min.js"></script>
+        <script src="dimple.v2.0.0.min.js"></script>
+    </head>
+
+    <body>
+    	
+        <h2>棒球球员的表现差异</h2>
+        <div id="chartContainer">
+        </div>
+        <script type="text/javascript">  
+    function draw(data)  {
+        
+	var svg = dimple.newSvg("#chartContainer",1800, 600);
+	var indicator = new dimple.chart(svg, data);
+
+	
+	var defaultColor = indicator.defaultColors[5];
+	var indicatorColor = indicator.defaultColors[6];
+
+	
+	var frame = 3000;
+
+	
+	indicator.setBounds(170, 8, 170, 50);
+
+	
+	var y = indicator.addCategoryAxis("y", "handedness");
+
+
+	y.addOrderRule("handedness", "Desc");
+
+	
+	var x = indicator.addMeasureAxis("x","HR");
+	x.hidden = true;
+
+	
+	var s = indicator.addSeries(null, dimple.plot.bar);
+	s.addEventHandler("click", onClick);
+	
+	indicator.draw();
+     debugger;
+
+	y.titleShape.remove();
+	y.shapes.selectAll("line,path").remove();
+     debugger;
+	
+	y.shapes.selectAll("text")
+		  .style("text-anchor", "start")
+		  .style("font-size", "18px")
+		  .attr("transform", "translate(10, 1)");
+    debugger;
+	
+	svg.selectAll("title_text")
+	    .data(["将球员按照惯用手分为3类，B为双手，L为左手，R为右手",
+		"把鼠标放置在左边条形上，HR的值表示该类球员的全垒得分总和",
+		"点击条形以选择查看各类球员的信息分布"])
+	    .enter()
+	    .append("text")
+	    .attr("x", 450)
+	    .attr("y", function (d, i) { return 10 + i * 16; })
+	    .style("font-family", "sans-serif")
+	    .style("font-size", "10px")
+	    .style("color", "Black")
+	    .text(function (d) { return d; });
+
+    debugger;
+	
+	s.shapes
+	  .attr("rx", 6)
+	  .attr("ry", 6)
+	  .style("fill", function (d) { return (d.y === 'B' ? indicatorColor.fill : defaultColor.fill) })
+	  .style("stroke", function (d) { return (d.y === 'B' ? indicatorColor.stroke : defaultColor.stroke) })
+	  .style("opacity", 0.5);
+    debugger;
+	
+	var bubbles = new dimple.chart(svg, data);
+
+	bubbles.setBounds(70,70 , 800, 400)
+	var y = bubbles.addMeasureAxis("y", "HR");
+	
+	y.title="全垒得分";
+	//bubbles.addMeasureAxis("z", "avg");
+	var x = bubbles.addMeasureAxis("x","avg");
+	x.title="击球率";
+
+	bubbles.addSeries(["name"], dimple.plot.bubble);
+
+
+	
+	var story = bubbles.setStoryboard("handedness", onTick);
+	
+	story.frameDuration = frame;
+	
+	story.addOrderRule("handedness");
+
+	
+	bubbles.draw();
+
+	
+	//story.storyLabel.remove();
+
+	
+	function onClick(e) {
+	    // Pause the animation
+	    story.pauseAnimation();
+	   
+	    if (e.yValue === story.getFrameValue()) {
+		//story.startAnimation();
+	    } 
+	    else {
+		story.goToFrame(e.yValue);
+		story.pauseAnimation();
+	    }
+	}
+
+	
+	function onTick(e) {
+	  //  if (!firstTick) {
+		// Color all shapes the same
+		s.shapes
+		    .transition()
+		    .duration(frame / 5)
+		    .style("fill", function (d) { return (d.y === e ? indicatorColor.fill : defaultColor.fill) })
+		    .style("stroke", function (d) { return (d.y === e ? indicatorColor.stroke : defaultColor.stroke) });
+	      
+	     // firstTick = false;
+	  //}
+	}
+    };
+    </script>
+    </body>
+     <script type="text/javascript">
+        d3.csv("baseballdata.csv",  function(d) {
+      d['height'] = +d['height'];
+      d['weight'] = +d['weight'];
+      d['avg'] = +d['avg'];
+      d['HR'] = +d['HR'];
+      return d;
+    },draw);
+    </script>
+</html>

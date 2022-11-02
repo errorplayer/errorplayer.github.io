@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+      <style type="text/css">
+      	h2 {
+            color: blue;
+            text-align: center;
+           }
+        body {
+             font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
+             font-weight: 300;
+             font-size: 1.2em;
+             line-height: 1.2em;
+             }
+      </style>
+        <meta charset="utf-8">
+        <script src="d3.v3.min.js"></script>
+        <script src="dimple.v2.0.0.min.js"></script>
+    </head>
+
+    <body>
+    	
+        <h2>棒球球员的表现差异</h2>
+        <div id="chartContainer">
+        </div>
+        <script type="text/javascript">  
+    function draw(data)  {
+    var svg = dimple.newSvg("#chartContainer",1800, 600);
+    //---
+    h_w_type = [{'value': '身高'}, {'value': '体重'}];
+    var h_w_dropdown = d3.select("body").append("select")
+    	.attr("id", "h_w_list");
+    var h_w_options = h_w_dropdown.selectAll("option")
+    	.data(h_w_type) 
+    	.enter()
+    	.append("option");
+    	h_w_options.text(function(d){ return d.value; })
+    	.attr("value", function (d) { return d.value; });
+
+    avg_hr_type = [{'value': 'avg'}, {'value': 'HR'}];
+    var avg_hr_dropdown = d3.select("body").append("select")
+    	.attr("id", "avg_hr_list");
+    var avg_hr_options = avg_hr_dropdown.selectAll("option")
+    	.data(avg_hr_type) 
+    	.enter()
+    	.append("option");
+    	avg_hr_options.text(function(d){ return d.value; })
+    	.attr("value", function (d) { return d.value; });
+    var saved_choice1 = "height";
+	var saved_choice2 = "avg";
+    var frame = 3000;
+    function drawChart(axis_x, axis_y, c=null){
+    
+
+
+    	var indicator = new dimple.chart(svg, data);
+
+
+    	var defaultColor = indicator.defaultColors[5];
+    	var indicatorColor = indicator.defaultColors[6];
+
+
+
+    	
+
+
+    	indicator.setBounds(170, 8, 170, 50);
+
+
+    	var y = indicator.addCategoryAxis("y", "handedness");
+
+
+    	y.addOrderRule("handedness", "Desc");
+
+
+    	var x = indicator.addMeasureAxis("x","HR");
+    	x.hidden = true;
+
+
+    	var s = indicator.addSeries(null, dimple.plot.bar);
+    	s.addEventHandler("click", onClick);
+
+    	indicator.draw();
+    	debugger;
+
+    	y.titleShape.remove();
+    	y.shapes.selectAll("line,path").remove();
+    	debugger;
+
+    	y.shapes.selectAll("text")
+    	.style("text-anchor", "start")
+    	.style("font-size", "18px")
+    	.attr("transform", "translate(10, 1)");
+    	debugger;
+
+    	svg.selectAll("title_text")
+    	.data(["将球员按照惯用手分为3类，B为双手，L为左手，R为右手",
+    		"把鼠标放置在左边条形上，HR的值表示该类球员的全垒得分总和",
+    		"点击条形以选择查看各类球员的信息分布"])
+    	.enter()
+    	.append("text")
+    	.attr("x", 450)
+    	.attr("y", function (d, i) { return 10 + i * 16; })
+    	.style("font-family", "sans-serif")
+    	.style("font-size", "10px")
+    	.style("color", "Black")
+    	.text(function (d) { return d; });
+
+    	debugger;
+
+    	s.shapes
+    	.attr("rx", 6)
+    	.attr("ry", 6)
+    	.style("fill", function (d) { return (d.y === 'B' ? indicatorColor.fill : defaultColor.fill) })
+    	.style("stroke", function (d) { return (d.y === 'B' ? indicatorColor.stroke : defaultColor.stroke) })
+    	.style("opacity", 0.5);
+    	debugger;
+
+    	var BubblesChart = new dimple.chart(svg, data);
+    	BubblesChart.setBounds(70,70 , 1000, 400);
+    	var x = BubblesChart.addMeasureAxis("x", axis_x);
+    	if(axis_x === 'height'){
+    		x.title = "身高（英寸）";
+    	}
+    	else{
+    		x.title = "体重（磅）";
+    	}              
+    	var y = BubblesChart.addMeasureAxis("y", axis_y);
+    	if(axis_y === 'avg'){
+    		y.title = "击球率";
+    	}
+    	else{
+    		y.title = "全垒得分";
+    	}  
+    	BubblesChart.addSeries(["name"], dimple.plot.bubble);
+    	var story = BubblesChart.setStoryboard("handedness", onTick);
+
+    	story.frameDuration = frame;
+
+    	story.addOrderRule("handedness");
+    	function onClick(e) {
+	    // Pause the animation
+	    story.pauseAnimation();
+
+	    if (e.yValue === story.getFrameValue()) {
+		//story.startAnimation();
+	    } 
+	    else {
+		story.goToFrame(e.yValue);
+		story.pauseAnimation();
+	     }
+        }
+
+
+       function onTick(e) {
+	    s.shapes
+		.transition()
+		.duration(frame / 5)
+		.style("fill", function (d) { return (d.y === e ? indicatorColor.fill : defaultColor.fill) })
+		.style("stroke", function (d) { return (d.y === e ? indicatorColor.stroke : defaultColor.stroke) });
+       }
+	   BubblesChart.draw();
+	   h_w_dropdown.on("change", statureChanged1);
+	   avg_hr_dropdown.on("change", statureChanged2);
+	   
+
+
+
+	return BubblesChart;
+}
+    
+    
+
+    function statureChanged1() {
+              var selectedValue = d3.event.target.value;
+              var selection = '';
+              if(selectedValue === '身高'){
+                  selection = 'height';
+                  saved_choice1 = "height";
+              }
+              else{
+                  selection = 'weight';
+                  saved_choice1 = "weight";
+              }
+              d3.selectAll("svg > *").remove();
+              var new_chart = drawChart(selection, saved_choice2);
+              h_w_dropdown.on("change", statureChanged1);
+              avg_hr_dropdown.on("change", statureChanged2);
+        
+          }
+    function statureChanged2() {
+              var selectedValue = d3.event.target.value;
+              var selection = '';
+              if(selectedValue === 'avg'){
+                  selection = 'avg';
+                  saved_choice2 = "avg";
+              }
+              else{
+                  selection = 'HR';
+                  saved_choice2 = "HR";
+              }
+              d3.selectAll("svg > *").remove();
+              var new_chart = drawChart(saved_choice1,selection);
+              h_w_dropdown.on("change", statureChanged1);
+              avg_hr_dropdown.on("change", statureChanged2);
+              
+        
+          }
+    //---     
+	
+	
+	var myChart = drawChart(saved_choice1, saved_choice2);
+
+
+    //myChart.draw();
+    
+	/*var bubbles = new dimple.chart(svg, data);
+
+	bubbles.setBounds(70,70 , 1000, 400);
+	var y = bubbles.addMeasureAxis("y", "HR");
+	
+	y.title="全垒得分";
+	//bubbles.addMeasureAxis("z", "avg");
+	var x = bubbles.addMeasureAxis("x","avg");
+	x.title="击球率";
+
+	bubbles.addSeries(["name"], dimple.plot.bubble);*/
+
+
+	
+	/*var story = bubbles.setStoryboard("handedness", onTick);
+	
+	story.frameDuration = frame;
+	
+	story.addOrderRule("handedness");
+
+	
+	bubbles.draw();*/
+
+	
+	//story.storyLabel.remove();
+
+	
+	
+    };
+    </script>
+    </body>
+     <script type="text/javascript">
+        d3.csv("baseballdata.csv",  function(d) {
+      d['height'] = +d['height'];
+      d['weight'] = +d['weight'];
+      d['avg'] = +d['avg'];
+      d['HR'] = +d['HR'];
+      return d;
+    },draw);
+    </script>
+</html>
